@@ -1,0 +1,122 @@
+/* 
+
+	-- INDEX.PHP -- 
+
+*/
+/* All */
+html {
+	
+}
+
+h2 {
+	font-family: 'Ma Shan Zheng', cursive;
+}
+
+.white {
+	color:white;
+}
+/* Présentation */
+#presentation-content {
+	border: 1px dashed black;
+	min-height: 130px;
+	margin-bottom: 50px;
+	display:flex;
+}
+
+.presentation {
+	font-family: 'Patrick Hand', cursive;
+	font-style: italic;
+	width:90%;
+	margin: auto;
+	display: inline-flex;
+}
+
+.img-biographie {
+	max-height: 200px;
+}
+
+.biographie {
+	margin-left: 10px;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+/* Histoire */
+#post-content {
+	width:100%;
+	height:auto;
+	margin:0;
+	padding:0;
+}
+#post-content p {
+	text-align: justify;
+}
+/* Footer */
+.footer {
+	font-family: 'Patrick Hand', cursive;
+}
+/* ################################################################################### */
+/* 
+
+	-- HEADER.PHP -- 
+
+*/
+header {
+	margin-bottom: 50px;
+	background-color: rgba(178, 11, 0);
+	background: linear-gradient(rgb(178, 11, 0), rgb(145, 9, 0));
+	border-bottom: 1px solid rgba(135, 8, 0, 1);
+	height: 150px;
+}
+/* Title */
+.title {
+	color:white;
+	font-family: 'Ma Shan Zheng', cursive;
+}
+
+.title h1 {
+	margin-left: 5%;
+	font-family: 'Ma Shan Zheng', cursive;
+}
+/* ################################################################################### */
+/* 
+
+	-- MENU.PHP -- 
+
+*/
+.menu {
+	text-align: right;
+}
+.menu p {
+	font-family: 'Patrick Hand', cursive;
+	color:white;
+}
+.lien-menu {
+	margin-left: 8px;
+}
+/* ################################################################################### */
+/* 
+
+	-- POST-VIEW.PHP -- 
+
+*/
+/* ################################################################################### */
+/* 
+
+	-- POST-LIST.PHP -- 
+
+*/
+.ticket {
+	width:98%;
+	margin: 1% auto;
+	padding:1%;
+	background: linear-gradient(rgba(221, 71, 69),rgba(200, 66, 64));
+	font-family: 'Patrick Hand', cursive;
+	border: 1px solid rgba(221, 60, 50);
+}
+
+.ticket label:hover {
+	cursor: pointer;
+}
