@@ -4,18 +4,22 @@
 	</div>
 	<div class="menu col-lg-4">
 		<?php 
-			session_start();
 			if(isset($_SESSION['id'])) {
 				if ($_SESSION['status'] == true) {
 					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
-					<a href="/index.php" class="lien-menu" style="text-decoration: none; color:white"><i class="fas fa-home"></i> Home </a> <a href="/admin/admin.php" class="lien-menu" style="text-decoration: none; color:white">Administration</a> <a href="/member/logout_script.php" class="lien-menu" style="text-decoration: none; color:white">Déconnexion</a>';
+					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
+					<form method="POST" action="index.php?admin"><label class="white"><input type="submit" style="display: none"/>Administration</label></form>
+					<form method="POST" action="index.php?logout"><label class="white"><input type="submit" style="display: none"/>Déconnexion</label></form>';
 				} else {
-					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p><a href="/index.php" class="lien-menu" style="text-decoration: none; color:white"><i class="fas fa-home"></i> Home </a> <a href="/member/logout_script.php" class="lien-menu" style="text-decoration: none; color:white">Déconnexion</a>';
+					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
+					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
+					<form method="POST" action="index.php?logout"><label class="white"><input type="submit" style="display: none"/>Déconnexion</label></form>';
 				}
 			} else {
 				echo 
-					'<a href="/index.php" class="lien-menu" style="text-decoration: none; color:white"><i class="fas fa-home"></i> Home </a> 
-					<a href="/subscribe.php" class="lien-menu" style="text-decoration: none; color:white">Inscription</a> <a href="/login.php" class="lien-menu" style="text-decoration: none; color:white">Connexion</a>';
+					'<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
+					<form method="POST" action="index.php?subscribe&load"><label class="white"><input type="submit" style="display: none"/>Inscription</label></form>
+					<form method="POST" action="index.php?login"><label class="white"><input type="submit" style="display: none"/>Connexion</label></form>';
 			}
 		?>
 	</div>

@@ -15,6 +15,7 @@ h2 {
 .white {
 	color:white;
 }
+
 /* Présentation */
 #presentation-content {
 	border: 1px dashed black;
@@ -96,12 +97,40 @@ header {
 .lien-menu {
 	margin-left: 8px;
 }
+
+.menu label:hover {
+	cursor: pointer;
+}
+
+.menu form {
+	display:inline-block;
+	margin-left: 5px;
+	font-size: 0.8em;
+}
+
+.menu p {
+	display:block;
+}
 /* ################################################################################### */
 /* 
 
 	-- POST-VIEW.PHP -- 
 
 */
+.comment {
+	background-color: rgba(17,17,17,0.1);
+	margin-bottom: 10px;
+}
+
+.comments form {
+	color: red;
+	font-size: 0.7em;
+	text-align: right;
+}
+
+.comments label:hover {
+	cursor: pointer;
+}
 /* ################################################################################### */
 /* 
 
@@ -118,5 +147,18 @@ header {
 }
 
 .ticket label:hover {
+	cursor: pointer;
+}
+/* ################################################################################### */
+/* 
+
+	-- FOOTER.PHP -- 
+
+*/
+.footer form, p {
+	display:inline-block;
+}
+
+.footer label:hover {
 	cursor: pointer;
 }
