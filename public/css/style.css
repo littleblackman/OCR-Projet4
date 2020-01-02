@@ -93,23 +93,18 @@ header {
 .menu p {
 	font-family: 'Patrick Hand', cursive;
 	color:white;
-}
-.lien-menu {
-	margin-left: 8px;
+	display:block;
 }
 
-.menu label:hover {
-	cursor: pointer;
-}
-
-.menu form {
+.menu a {
 	display:inline-block;
 	margin-left: 5px;
 	font-size: 0.8em;
 }
 
-.menu p {
-	display:block;
+.menu a:hover {
+	border-bottom: 2px solid white;
+	color:white;
 }
 /* ################################################################################### */
 /* 
@@ -122,15 +117,13 @@ header {
 	margin-bottom: 10px;
 }
 
-.comments form {
+.comments a {
 	color: red;
-	font-size: 0.7em;
+	font-size: 0.8em;
 	text-align: right;
+	display: block;
 }
 
-.comments label:hover {
-	cursor: pointer;
-}
 /* ################################################################################### */
 /* 
 
@@ -146,27 +139,9 @@ header {
 	border: 1px solid rgba(221, 60, 50);
 }
 
-.ticket label:hover {
-	cursor: pointer;
-}
-
-.ticket form {
-	display:inline-block;
-}
-
-.ticket label {
-	margin-right:10px;
-}
 /* ################################################################################### */
 /* 
 
 	-- FOOTER.PHP -- 
 
 */
-.footer form, p {
-	display:inline-block;
-}
-
-.footer label:hover {
-	cursor: pointer;
-}

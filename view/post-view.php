@@ -26,7 +26,7 @@
 	        	echo 
 	        		'<div class="comment"><h6>' . $member . '</h6>
 	        		<p>' . $text . '</p>
-	        		<form method="POST" action="index.php?signaled=' . $comment['id_com'] . '&id=' . $id_post . '"><label><input type="submit" style="display: none"/>Signaler</label></form></div>'
+	        		<a href="index.php?action=signaled&id-com=' . $comment['id_com'] . '&id=' . $id_post . '" style="text-decoration:none">Signaler</a></div>'
 	        	;
 	       	}
 	    ?>

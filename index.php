@@ -88,8 +88,8 @@ if (!empty($_GET)) {
         // SIGNALEMENT
         else if ($_GET['action'] == 'signaled') {
             if (isset($_SESSION['id'])) {
-                if ((($_GET['signaled']) >= 1) && (isset($_GET['id'])) && (($_GET['id']) >= 1)) {
-                    signaled($_GET['signaled'], $_GET['id']);
+                if ((($_GET['id-com']) >= 1) && (isset($_GET['id'])) && (($_GET['id']) >= 1)) {
+                    signaled($_GET['id-com'], $_GET['id']);
                 } else {
                     echo 'Désolé, une erreur s\'est produite.';
                     echo '<a href="index.php"> Retourner à l\'accueil</a>';            

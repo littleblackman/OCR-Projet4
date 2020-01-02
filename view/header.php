@@ -7,19 +7,19 @@
 			if(isset($_SESSION['id'])) {
 				if ($_SESSION['status'] == true) {
 					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
-					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
-					<a href="index.php?action=admin" class="white">Administration</a>
-					<a href="index.php?action=logout" class="white">Déconnexion</a>';
+					<a href="index.php" class="white" style="text-decoration:none;"><i class="fas fa-home"></i>Home</a>
+					<a href="index.php?action=admin" class="white" style="text-decoration:none;">Administration</a>
+					<a href="index.php?action=logout" class="white" style="text-decoration:none;">Déconnexion</a>';
 				} else {
 					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
-					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
-					<a href="index.php?action=logout" class="white">Déconnexion</a>';
+					<a href="index.php" class="white" style="text-decoration:none;"><i class="fas fa-home"></i>Home</a>
+					<a href="index.php?action=logout" class="white" style="text-decoration:none;">Déconnexion</a>';
 				}
 			} else {
 				echo 
-					'<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
-					<form method="POST" action="index.php?subscribe&load"><label class="white"><input type="submit" style="display: none"/>Inscription</label></form>
-					<a href="index.php?action=login" class="white">Connexion</a>';
+					'<a href="index.php" class="white" style="text-decoration:none;"><i class="fas fa-home"></i>Home</a>
+					<a href="index.php?action=subscribe" class="white" style="text-decoration:none;">Inscription</a>
+					<a href="index.php?action=login" class="white" style="text-decoration:none;">Connexion</a>';
 			}
 		?>
 	</div>

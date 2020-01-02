@@ -27,7 +27,7 @@ class PostManager {
 			'text' => $text
 		));
 
-		header('Location: index.php?admin');
+		header('Location: index.php?action=admin');
 	}
 
 	// SUPPRIMER UN POST
@@ -36,7 +36,7 @@ class PostManager {
 		$delete = $bdd->prepare('DELETE FROM post WHERE id = ?');
 		$delete->execute(array($id));
 
-		header('Location: index.php?admin');
+		header('Location: index.php?action=admin');
 	}
 
 	// CONNEXION A LA BDD
