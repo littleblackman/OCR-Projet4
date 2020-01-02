@@ -1,5 +1,7 @@
 <?php
 class Session {
+
+	// EFFECTUER UNE CONNEXION
     public function login($name, $pass) {
 		$bdd = $this->dbConnect();
 		$req = $bdd->prepare('SELECT * FROM members WHERE name = :name');

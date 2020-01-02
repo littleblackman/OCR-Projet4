@@ -149,6 +149,14 @@ header {
 .ticket label:hover {
 	cursor: pointer;
 }
+
+.ticket form {
+	display:inline-block;
+}
+
+.ticket label {
+	margin-right:10px;
+}
 /* ################################################################################### */
 /* 
 

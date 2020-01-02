@@ -18,12 +18,12 @@
 					echo $title;
 					echo '</h5><p>';
 					if (strlen($text) >= 250) {
-						echo substr($text, 0, 250) . '...';
-						echo '<form method="POST" action="/index.php?action=view&amp;id=' . $post['id'] . '"><label class="white"><input type="submit" style="display: none"/>Lire la suite</label></form>';
+						echo substr($text, 0, 250) . '...</p>';
+						echo '<a href="index.php?action=view&amp;id=' . $post['id'] . '" class="white">Lire la suite</a>';
 					} else {
 						echo $text;
 					}
-					echo '</p></div>';
+					echo '</div>';
 				}
 			?>
 </section>

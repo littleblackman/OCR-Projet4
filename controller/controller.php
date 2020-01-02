@@ -18,7 +18,21 @@ function post() {
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/post-view.php');
+    if ($post === false) {
+    	die('Impossible d\'afficher le post !');
+    } else {
+    	require('view/post-view.php');
+    }
+}
+
+function addPost($title, $text) {
+	$postManager = new PostManager();
+	$newPost = $postManager->pushPost($title, $text);
+}
+
+function deletePost($id) {
+	$postManager = new PostManager();
+	$deletePost = $postManager->deletePost($id);
 }
 
 function addComment($comment, $id) {
@@ -40,6 +54,16 @@ function logout() {
 function signaled($idComment, $idPost) {
 	$commentManager = new CommentManager();
 	$commentManager->signaledComment($idComment, $idPost);
+}
+
+function goToAdmin() {
+	$postManager = new PostManager();
+	$commentManager = new CommentManager();
+
+	$posts = $postManager->getPosts();
+    $comments = $commentManager->getSignaledComments();
+
+	require('view/admin.php');
 }
 
 ?>

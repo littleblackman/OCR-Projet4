@@ -8,18 +8,18 @@
 				if ($_SESSION['status'] == true) {
 					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
 					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
-					<form method="POST" action="index.php?admin"><label class="white"><input type="submit" style="display: none"/>Administration</label></form>
-					<form method="POST" action="index.php?logout"><label class="white"><input type="submit" style="display: none"/>Déconnexion</label></form>';
+					<a href="index.php?action=admin" class="white">Administration</a>
+					<a href="index.php?action=logout" class="white">Déconnexion</a>';
 				} else {
 					echo '<p>Bienvenue, ' . $_SESSION['name'] . ' !</p>
 					<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
-					<form method="POST" action="index.php?logout"><label class="white"><input type="submit" style="display: none"/>Déconnexion</label></form>';
+					<a href="index.php?action=logout" class="white">Déconnexion</a>';
 				}
 			} else {
 				echo 
 					'<form method="POST" action="index.php"><label class="white"><input type="submit" style="display: none"/><i class="fas fa-home"></i>Home</label></form>
 					<form method="POST" action="index.php?subscribe&load"><label class="white"><input type="submit" style="display: none"/>Inscription</label></form>
-					<form method="POST" action="index.php?login"><label class="white"><input type="submit" style="display: none"/>Connexion</label></form>';
+					<a href="index.php?action=login" class="white">Connexion</a>';
 			}
 		?>
 	</div>

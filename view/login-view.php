@@ -5,7 +5,7 @@
 <center><h3>LOGIN</h3></center>
 	<section id="login" class="row justify-content-md-center">
 		<div class="login">
-			<form action="index.php?login&amp;verify" method="post" class="login">
+			<form action="index.php?action=login&amp;verify" method="post" class="login">
 				<div class="login">
 					<label for="login_name">Pseudo</label>
 					<input type="text" name="login_name" id="login_name" required>
