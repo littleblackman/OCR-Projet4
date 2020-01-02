@@ -54,10 +54,7 @@ h2 {
 #post-content p {
 	text-align: justify;
 }
-/* Footer */
-.footer {
-	font-family: 'Patrick Hand', cursive;
-}
+
 /* ################################################################################### */
 /* 
 
@@ -145,3 +142,10 @@ header {
 	-- FOOTER.PHP -- 
 
 */
+.footer {
+	font-family: 'Patrick Hand', cursive;
+}
+
+.footer a, p {
+	display: inline-block;
+}

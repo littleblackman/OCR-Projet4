@@ -1,5 +1,5 @@
 <?php
-class CommentManager {
+class CommentManager extends Manager {
     // RECUPERER LA LISTE DES COMMENTAIRES LIES AU POST
 	public function getComments($postId) {
         $bdd = $this->dbConnect();
@@ -45,17 +45,11 @@ class CommentManager {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('
         	UPDATE comments 
-        	SET signaled = true 
+        	SET signaled = true
         	WHERE id = ?
         ');
 		$req->execute(array($idComment));
 		header('Location: index.php?action=view&id=' . $idPost . '');
 	}
-
-    // CONNEXION A LA BDD
-	private function dbConnect() {
-		$bdd = new PDO('mysql:host=localhost; dbname=myblog; charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-		    return $bdd;
-    }
 
 }

@@ -1,5 +1,5 @@
 <?php
-class PostManager {
+class PostManager extends Manager {
 	// RECUPERER LA LISTE DES POSTS
     public function getPosts() {
 		$bdd = $this->dbConnect();
@@ -39,9 +39,4 @@ class PostManager {
 		header('Location: index.php?action=admin');
 	}
 
-	// CONNEXION A LA BDD
-	private function dbConnect() {
-		$bdd = new PDO('mysql:host=localhost; dbname=myblog; charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-		    return $bdd;
-    }
 }

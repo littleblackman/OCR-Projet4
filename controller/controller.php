@@ -1,5 +1,6 @@
 <?php
 // Chargement des classes
+require_once('model/Manager.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/Session.php');
@@ -19,7 +20,7 @@ function post() {
     $comments = $commentManager->getComments($_GET['id']);
 
     if ($post === false) {
-    	die('Impossible d\'afficher le post !');
+    	echo 'Le post n\'éxiste pas!';
     } else {
     	require('view/post-view.php');
     }
