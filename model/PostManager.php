@@ -27,7 +27,7 @@ class PostManager extends Manager {
 			'text' => $text
 		));
 
-		header('Location: index.php?action=admin');
+		return $req_insert_post;
 	}
 
 	// SUPPRIMER UN POST
@@ -36,7 +36,7 @@ class PostManager extends Manager {
 		$delete = $bdd->prepare('DELETE FROM post WHERE id = ?');
 		$delete->execute(array($id));
 
-		header('Location: index.php?action=admin');
+		return $delete;
 	}
 
 }

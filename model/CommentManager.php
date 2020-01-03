@@ -37,7 +37,8 @@ class CommentManager extends Manager {
 			'idm' => $_SESSION['id'],
 			'idp' => $id
 		));
-		header('Location: index.php?action=view&id=' . $id . '');
+		
+        return $req;
 	}
 
     // EFFECTUER UN SIGNALEMENT
@@ -49,7 +50,8 @@ class CommentManager extends Manager {
         	WHERE id = ?
         ');
 		$req->execute(array($idComment));
-		header('Location: index.php?action=view&id=' . $idPost . '');
+		
+        return $req;
 	}
 
 }

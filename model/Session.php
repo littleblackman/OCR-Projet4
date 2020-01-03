@@ -8,23 +8,22 @@ class Session extends Manager {
 		$req->execute(array('name' => $name));
 		$resultat = $req->fetch();
 
-		// Comparaison du pass envoyé via le formulaire avec la base
+	// Comparaison du mot de passe
 		$isPasswordCorrect = password_verify($pass, $resultat['password']);
-
 		if (!$resultat) {
-		    echo 'Mauvais identifiant ou mot de passe !';
-		    echo '<a href="index.php"> Retourner à l\'accueil</a>';
+			throw new Exception('Erreur : Mauvais identifiant et/ou mot de passe !');
 		} else {
-		    if ($isPasswordCorrect) {
-		        session_start();
-		        $_SESSION['id'] = $resultat['id'];
-		        $_SESSION['name'] = $resultat['name'];
-		        $_SESSION['status'] = $resultat['moderator'];
-		        header('Location: index.php');
-		    }else {
-		        echo 'Mauvais identifiant ou mot de passe !';
-		        echo '<a href="index.php"> Retourner à l\'accueil</a>';
-		    }
+			if ($isPasswordCorrect) {
+				session_start();
+				$_SESSION['id'] = $resultat['id'];
+				$_SESSION['name'] = $resultat['name'];
+				$_SESSION['status'] = $resultat['moderator'];
+				
+				return $resultat;
+			}else {
+				throw new Exception('Erreur : Mot de passe erroné !');
+			}
 		}
+
 	}
 }
