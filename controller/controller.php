@@ -9,7 +9,11 @@ function listPosts() {
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
-    require('view/post-list.php');
+    if ($req === false) {
+    	throw new Exception('Erreur : Impossible de récupérer la liste des posts !');
+    } else {
+    	require('view/post-list.php');
+    }
 }
 
 function post() {
@@ -20,7 +24,7 @@ function post() {
     $comments = $commentManager->getComments($_GET['id']);
 
     if ($post === false) {
-    	echo 'Le post n\'éxiste pas!';
+    	throw new Exception('Erreur : L\'identifiant de post n\'existe pas !');
     } else {
     	require('view/post-view.php');
     }
