@@ -66,7 +66,12 @@
                             if (isset($_GET['add'])) {
                                 addPost($_POST['title_post'], $_POST['text_post']);
                             } else if (isset($_GET['delete'])) {
-                                deletePost($_GET['id']);
+                                if (isset($_GET['confirm'])) {
+                                    deletePost($_GET['id']);                                   
+                                } else {
+                                    confirm($_GET['id']);
+                                }
+
                             } else if (isset($_GET['edit'])) {
                                 echo 'edit';
                             } else {
@@ -94,7 +99,7 @@
                 }
 
             } else {
-                throw new Exception('Erreur : La page recherché n\'éxiste pas !');  
+                throw new Exception('Erreur : La page recherché n\'existe pas !');  
             }
         } else {
             listPosts();

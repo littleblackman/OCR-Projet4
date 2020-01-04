@@ -2,16 +2,15 @@
 	ob_start(); 
 ?>
 <section id="post-content" class="row justify-content-md-center">
+	<div class="col-sm-12">
 			<?php
 				$title = $post['title'];
 				$text = $post['text'];
 				$id_post = $post['id'];
-				echo '<h6>';
-				echo $title;
-				echo '</h6><p>';
-				echo $text;
-				echo '</p>';
+				echo '<h6>' . $title . '</h6>';
+				echo '<div class="post-content">' . $text . '</div>';
 			?>
+	</div>
 </section>
 <hr>
 <section id="comment-content" class="container">
@@ -35,15 +34,15 @@
 		<?php
 			if (isset($_SESSION['id'])) {
 				echo
-					'<form action="/index.php?action=addComment&amp;id=' . $id_post . '" method="post" class="form-coment">
+					'<div class="comment-zone"><form action="/index.php?action=addComment&amp;id=' . $id_post . '" method="post">
 						<div class="form-comment">
-							<label for="comment">Ajouter un commentaire : </label><br>
-							<textarea name="comment" id="comment" required></textarea>
+							<label for="comment"><h6>Ajouter un commentaire : </h6></label><br>
+							<textarea name="comment" id="comment" cols="45" rows="5" required></textarea>
 						</div>
 						<div class="form-comment">
 							<input type="submit" value="Envoyer">
 						</div>
-					</form>'
+					</form></div>'
 				;	
 				} else {
 					echo 'Connectez-vous pour rédiger un commentaire !'; 

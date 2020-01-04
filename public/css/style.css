@@ -1,12 +1,10 @@
 /* 
 
-	-- INDEX.PHP -- 
+	-- GENERAL -- 
 
 */
 /* All */
-html {
-	
-}
+
 
 h2 {
 	font-family: 'Ma Shan Zheng', cursive;
@@ -30,6 +28,7 @@ h2 {
 	width:90%;
 	margin: auto;
 	display: inline-flex;
+	flex-wrap: nowrap;
 }
 
 .img-biographie {
@@ -55,10 +54,23 @@ h2 {
 	text-align: justify;
 }
 
+.post-content {
+	width:100%;
+	height:auto;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+@media screen and (max-width: 640px) {
+	.presentation {
+		display: block;
+	}
+}
 /* ################################################################################### */
 /* 
 
-	-- HEADER.PHP -- 
+	-- HEADER -- 
 
 */
 header {
@@ -81,7 +93,7 @@ header {
 /* ################################################################################### */
 /* 
 
-	-- MENU.PHP -- 
+	-- MENU -- 
 
 */
 .menu {
@@ -106,7 +118,7 @@ header {
 /* ################################################################################### */
 /* 
 
-	-- POST-VIEW.PHP -- 
+	-- POST-VIEW -- 
 
 */
 .comment {
@@ -121,10 +133,15 @@ header {
 	display: block;
 }
 
+.comment-zone {
+	background-color: rgba(17,17,17,0.3);
+	width:100%;
+	text-align: center;
+}
 /* ################################################################################### */
 /* 
 
-	-- POST-LIST.PHP -- 
+	-- POST-LIST -- 
 
 */
 .ticket {
@@ -134,12 +151,13 @@ header {
 	background: linear-gradient(rgba(221, 71, 69),rgba(200, 66, 64));
 	font-family: 'Patrick Hand', cursive;
 	border: 1px solid rgba(221, 60, 50);
+	overflow: hidden;
 }
 
 /* ################################################################################### */
 /* 
 
-	-- FOOTER.PHP -- 
+	-- FOOTER -- 
 
 */
 .footer {
@@ -148,4 +166,12 @@ header {
 
 .footer a, p {
 	display: inline-block;
+}
+
+.confirm {
+	min-height: 600px;
+}
+
+.error {
+	border: 1px solid black;
 }

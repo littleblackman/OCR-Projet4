@@ -5,6 +5,11 @@
 	require_once('model/CommentManager.php');
 	require_once('model/Session.php');
 
+	function confirm($id) {
+		$id_post = $id;
+		require('view/confirm-view.php');
+	}
+
 	function listPosts() {
 	    $postManager = new PostManager(); // Création d'un objet
 	    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet

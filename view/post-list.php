@@ -22,6 +22,7 @@
 						echo '<a href="index.php?action=view&amp;id=' . $post['id'] . '" class="white">Lire la suite</a>';
 					} else {
 						echo $text;
+						echo '<a href="index.php?action=view&amp;id=' . $post['id'] . '" class="white">Lire la suite</a>';
 					}
 					echo '</div>';
 				}
