@@ -26,4 +26,18 @@ class Session extends Manager {
 		}
 
 	}
+
+	public function subscribe($name, $pass) {
+		$bdd = $this->dbConnect();
+
+		// Hachage du mot de passe
+		$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+
+		// Insertion
+		$req = $bdd->prepare('INSERT INTO members(name, password) VALUES(:name, :pass)');
+		$req->execute(array(
+		    'name' => $_POST['subscribe_name'],
+		    'pass' => $pass_hache));
+		return $req;
+	}
 }

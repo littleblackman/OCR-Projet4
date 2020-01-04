@@ -79,6 +79,17 @@
 		}
 	}
 
+	function subscribeVerify($name, $pass) {
+		$session = new Session();
+		$session->subscribe($name, $pass);
+
+		if ($session === false) {
+	    	throw new Exception('Erreur SQL: Impossible d\'enregistrer vos données !');
+	    } else {
+			header('Location: index.php');
+		}
+	}
+
 	function logout() {
 		$_SESSION = array();
 		session_destroy();

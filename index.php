@@ -33,7 +33,7 @@
                 // LOGIN
                 else if ($_GET['action'] == 'login') {
                     if (isset($_SESSION['id'])) {
-                        echo 'Vous êtes déjà connecté !';
+                        throw new Exception('Erreur : Vous êtes déjà connecté !');
                     } else {
                         // login-view
                         if (isset($_GET['verify'])) {
@@ -41,11 +41,28 @@
                                 loginVerify(($_POST['login_name']),($_POST['login_pass']));
                             }
                             else {
-                                echo 'Erreur : tous les champs ne sont pas remplis !';
                                 throw new Exception('Erreur : tous les champs ne sont pas remplis !');
                             }
                         } else {
                             require('view/login-view.php');
+                        }
+                    }
+                }
+
+                // SUBSCRIBE
+                else if ($_GET['action'] == 'subscribe') {
+                    if (isset($_SESSION['id'])) {
+                        throw new Exception('Erreur : Vous êtes déjà connecté !');
+                    } else {
+                        if (isset($_GET['verify'])) {
+                            if ((isset($_POST['subscribe_name'])) && (isset($_POST['subscribe_pass']))) {
+                                subscribeVerify(($_POST['subscribe_name']),($_POST['subscribe_pass']));
+                            }
+                            else {
+                                throw new Exception('Erreur : tous les champs ne sont pas remplis a!');
+                            }
+                        } else {
+                            require('view/subscribe-view.php');
                         }
                     }
                 }

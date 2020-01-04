@@ -2,7 +2,7 @@
 	ob_start(); 
 ?>
 
-<center><h3>LOGIN</h3></center>
+<center><h3>CONNEXION</h3></center>
 	<section id="login" class="row justify-content-md-center">
 		<div class="login">
 			<form action="index.php?action=login&amp;verify" method="post" class="login">
