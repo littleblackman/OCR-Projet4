@@ -1,4 +1,6 @@
 <?php
+namespace VeyratAntoine\MyBlog\Model;
+
 class Session extends Manager {
 
 	// EFFECTUER UNE CONNEXION

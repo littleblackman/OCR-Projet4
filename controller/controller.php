@@ -11,7 +11,7 @@
 	}
 
 	function listPosts() {
-	    $postManager = new PostManager(); // Création d'un objet
+	    $postManager = new VeyratAntoine\MyBlog\Model\PostManager(); // Création d'un objet
 	    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
 	    if ($posts === false) {
@@ -22,8 +22,8 @@
 	}
 
 	function post() {
-	    $postManager = new PostManager();
-	    $commentManager = new CommentManager();
+	    $postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
+	    $commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
 
 	    $post = $postManager->getPost($_GET['id']);
 	    $comments = $commentManager->getComments($_GET['id']);
@@ -36,7 +36,7 @@
 	}
 
 	function addPost($title, $text) {
-		$postManager = new PostManager();
+		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
 		$newPost = $postManager->pushPost($title, $text);
 
 		if ($newPost === false) {
@@ -47,7 +47,7 @@
 	}
 
 	function openEditForm($id) {
-		$postManager = new PostManager();
+		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
 		$post = $postManager->getPost($_GET['id']);
 
 		if ($post === false) {
@@ -59,7 +59,7 @@
 	}
 
 	function editPost($title, $text) {
-		$postManager = new PostManager();
+		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
 		$editPost = $postManager->editPost($title, $text);
 
 		if ($editPost === false) {
@@ -70,7 +70,7 @@
 	}
 
 	function deletePost($id) {
-		$postManager = new PostManager();
+		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
 		$deletePost = $postManager->deletePost($id);
 
 		if ($deletePost === false) {
@@ -81,7 +81,7 @@
 	}
 
 	function addComment($comment, $id) {
-		$commentManager = new CommentManager();
+		$commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
 		$commentManager->pushComment($comment, $id);
 
 		if ($commentManager === false) {
@@ -92,7 +92,7 @@
 	}
 
 	function loginVerify($name, $pass) {
-		$session = new Session();
+		$session = new \VeyratAntoine\MyBlog\Model\Session();
 		$session->login($name, $pass);
 
 		if ($session === false) {
@@ -103,7 +103,7 @@
 	}
 
 	function subscribeVerify($name, $pass) {
-		$session = new Session();
+		$session = new \VeyratAntoine\MyBlog\Model\Session();
 		$session->subscribe($name, $pass);
 
 		if ($session === false) {
@@ -120,7 +120,7 @@
 	}
 
 	function signaled($idComment, $idPost) {
-		$commentManager = new CommentManager();
+		$commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
 		$commentManager->signaledComment($idComment, $idPost);
 
 		if ($commentManager === false) {
@@ -132,8 +132,8 @@
 	}
 
 	function goToAdmin() {
-		$postManager = new PostManager();
-		$commentManager = new CommentManager();
+		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
+		$commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
 
 		$posts = $postManager->getPosts();
 	    $comments = $commentManager->getSignaledComments();

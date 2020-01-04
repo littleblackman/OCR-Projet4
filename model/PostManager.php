@@ -1,4 +1,6 @@
 <?php
+namespace VeyratAntoine\MyBlog\Model;
+
 class PostManager extends Manager {
 	// RECUPERER LA LISTE DES POSTS
     public function getPosts() {

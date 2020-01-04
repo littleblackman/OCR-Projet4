@@ -1,4 +1,6 @@
 <?php
+namespace VeyratAntoine\MyBlog\Model;
+
 class CommentManager extends Manager {
     // RECUPERER LA LISTE DES COMMENTAIRES LIES AU POST
 	public function getComments($postId) {
