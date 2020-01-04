@@ -30,6 +30,18 @@ class PostManager extends Manager {
 		return $req_insert_post;
 	}
 
+	// MODIFIER UN POST
+	public function editPost($title, $text) {
+		$bdd = $this->dbConnect();
+		$req_edit_post= $bdd->prepare('UPDATE post SET title= :title, text= :text');
+		$req_edit_post->execute(array(
+			'title' => $title,
+			'text' => $text
+		));
+
+		return $req_edit_post;
+	}
+
 	// SUPPRIMER UN POST
 	public function deletePost($id) {
 		$bdd = $this->dbConnect();

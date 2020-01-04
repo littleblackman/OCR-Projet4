@@ -46,6 +46,29 @@
 	    }
 	}
 
+	function openEditForm($id) {
+		$postManager = new PostManager();
+		$post = $postManager->getPost($_GET['id']);
+
+		if ($post === false) {
+	    	throw new Exception('Erreur SQL: L\'identifiant de post n\'existe pas !');
+	    } else {
+			require('view/edit-view.php');
+	    }
+
+	}
+
+	function editPost($title, $text) {
+		$postManager = new PostManager();
+		$editPost = $postManager->editPost($title, $text);
+
+		if ($editPost === false) {
+	    	throw new Exception('Erreur SQL: Impossible de modifier le post !');
+	    } else {
+	    	header('Location: index.php?action=admin');
+	    }
+	}
+
 	function deletePost($id) {
 		$postManager = new PostManager();
 		$deletePost = $postManager->deletePost($id);

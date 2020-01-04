@@ -88,9 +88,12 @@
                                 } else {
                                     confirm($_GET['id']);
                                 }
-
                             } else if (isset($_GET['edit'])) {
-                                echo 'edit';
+                                if (isset($_GET['ok'])) {
+                                    editPost($_POST['new_title_post'], $_POST['new_text_post']);
+                                } else {
+                                    openEditForm($_GET['id']);
+                                }
                             } else {
                                 goToAdmin();
                             }
