@@ -29,6 +29,7 @@ class Session extends Manager {
 
 	}
 
+	//ENREGISTREMENT MEMBRE
 	public function subscribe($name, $pass) {
 		$bdd = $this->dbConnect();
 

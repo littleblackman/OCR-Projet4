@@ -7,7 +7,7 @@
 		<div class="login">
 			<form action="index.php?action=login&amp;verify" method="post" class="login">
 				<div class="login">
-					<label for="login_name">Pseudo</label>
+					<label for="login_name">Identifiant</label>
 					<input type="text" name="login_name" id="login_name" required>
 				</div>
 				<div class="login">

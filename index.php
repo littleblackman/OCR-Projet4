@@ -90,10 +90,14 @@
                                 }
                             } else if (isset($_GET['edit'])) {
                                 if (isset($_GET['ok'])) {
-                                    editPost($_POST['new_title_post'], $_POST['new_text_post']);
+                                    editPost($_POST['new_title_post'], $_POST['new_text_post'], $_GET['id']);
                                 } else {
                                     openEditForm($_GET['id']);
                                 }
+                            } else if (isset($_GET['commentDelete'])) {
+                                deleteComment($_GET['id']);                                   
+                            } else if (isset($_GET['commentReset'])){
+                                resetComment($_GET['id']);
                             } else {
                                 goToAdmin();
                             }

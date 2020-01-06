@@ -25,7 +25,7 @@ class CommentManager extends Manager {
             FROM comments c
             INNER JOIN members m
             ON c.id_member = m.id
-            WHERE  signaled = 0');
+            WHERE  signaled = 1');
 
         return $req;
     }
@@ -42,6 +42,27 @@ class CommentManager extends Manager {
 		
         return $req;
 	}
+
+        // SUPPRIMER UN COMMENTAIRE
+    public function deleteComment($id) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array($id));
+        
+        return $req;
+    }
+
+        // RESET UN COMMENTAIRE
+    public function resetComment($id) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('UPDATE comments SET signaled= :signal WHERE id= :id');
+        $req->execute(array(
+            'signal' => 0, 
+            'id' => $id
+        ));
+        
+        return $req;
+    }
 
     // EFFECTUER UN SIGNALEMENT
 	public function signaledComment($idComment, $idPost) {

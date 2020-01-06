@@ -58,9 +58,9 @@
 
 	}
 
-	function editPost($title, $text) {
+	function editPost($title, $text, $id) {
 		$postManager = new \VeyratAntoine\MyBlog\Model\PostManager();
-		$editPost = $postManager->editPost($title, $text);
+		$editPost = $postManager->editPost($title, $text, $id);
 
 		if ($editPost === false) {
 	    	throw new Exception('Erreur SQL: Impossible de modifier le post !');
@@ -88,6 +88,28 @@
 	    	throw new Exception('Erreur SQL: Impossible d\'ajouter le commentaire !');
 	    } else {
 	    	header('Location: index.php?action=view&id=' . $id . '');
+	    }
+	}
+
+	function deleteComment($id) {
+		$commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
+		$delete = $commentManager->deleteComment($id);
+
+		if ($delete === false) {
+	    	throw new Exception('Erreur SQL: Impossible de supprimer le commentaire !');
+	    } else {
+	    	header('Location: index.php?action=admin');
+	    }
+	}
+
+	function resetComment($id) {
+		$commentManager = new \VeyratAntoine\MyBlog\Model\CommentManager();
+		$reset = $commentManager->resetComment($id);
+
+		if ($reset === false) {
+	    	throw new Exception('Erreur SQL: Impossible de reset le commentaire !');
+	    } else {
+	    	header('Location: index.php?action=admin');
 	    }
 	}
 
