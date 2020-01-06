@@ -1,15 +1,13 @@
-<?php 
-	ob_start(); 
-?>
+<?php ob_start(); ?>
 <section id="post-content" class="row justify-content-md-center">
 	<div class="col-sm-12">
-			<?php
-				$title = $post['title'];
-				$text = $post['text'];
-				$id_post = $post['id'];
-				echo '<h6>' . $title . '</h6>';
-				echo '<div class="post-content">' . $text . '</div>';
-			?>
+		<?php
+			$title = $post['title'];
+			$text = $post['text'];
+			$id_post = $post['id'];
+			echo '<h6>' . $title . '</h6>';
+			echo '<div class="post-content">' . $text . '</div>';
+		?>
 	</div>
 </section>
 <hr>
@@ -51,7 +49,6 @@
 	</div>
 </section>
 <hr>
-
 <?php 
 	$content = ob_get_clean();
 	require('template.php'); 

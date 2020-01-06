@@ -23,7 +23,7 @@
                     } else {
                         if (isset($_GET['verify'])) {
                             if ((isset($_POST['login_name'])) && (isset($_POST['login_pass']))) {
-                                loginVerify(($_POST['login_name']),($_POST['login_pass']));
+                                loginVerify(htmlspecialchars(($_POST['login_name'])),htmlspecialchars(($_POST['login_pass'])));
                             }
                             else {
                                 throw new Exception('Erreur : tous les champs ne sont pas remplis !');
@@ -41,7 +41,7 @@
                     } else {
                         if (isset($_GET['verify'])) {
                             if ((isset($_POST['subscribe_name'])) && (isset($_POST['subscribe_pass']))) {
-                                subscribeVerify(($_POST['subscribe_name']),($_POST['subscribe_pass']));
+                                subscribeVerify(htmlspecialchars(($_POST['subscribe_name'])),htmlspecialchars(($_POST['subscribe_pass'])));
                             }
                             else {
                                 throw new Exception('Erreur : tous les champs ne sont pas remplis a!');
@@ -66,23 +66,23 @@
                     if (isset($_SESSION['id'])) {
                         if ($_SESSION['status'] == '1') {
                             if (isset($_GET['add'])) {
-                                addPost($_POST['title_post'], $_POST['text_post']);
+                                addPost(htmlspecialchars($_POST['title_post']), htmlspecialchars($_POST['text_post']));
                             } else if (isset($_GET['delete'])) {
                                 if (isset($_GET['confirm'])) {
-                                    deletePost($_GET['id']);                                   
+                                    deletePost(htmlspecialchars($_GET['id']));                                   
                                 } else {
-                                    confirm($_GET['id']);
+                                    confirm(htmlspecialchars($_GET['id']));
                                 }
                             } else if (isset($_GET['edit'])) {
                                 if (isset($_GET['ok'])) {
-                                    editPost($_POST['new_title_post'], $_POST['new_text_post'], $_GET['id']);
+                                    editPost(htmlspecialchars($_POST['new_title_post']), htmlspecialchars($_POST['new_text_post']), htmlspecialchars($_GET['id']));
                                 } else {
-                                    openEditForm($_GET['id']);
+                                    openEditForm(htmlspecialchars($_GET['id']));
                                 }
                             } else if (isset($_GET['commentDelete'])) {
-                                deleteComment($_GET['id']);                                   
+                                deleteComment(htmlspecialchars($_GET['id']));                                   
                             } else if (isset($_GET['commentReset'])){
-                                resetComment($_GET['id']);
+                                resetComment(htmlspecialchars($_GET['id']));
                             } else {
                                 goToAdmin();
                             }
@@ -98,7 +98,7 @@
                 else if ($_GET['action'] == 'addComment') {
                     if (isset($_SESSION['id'])) {
                         if ((!empty($_POST['comment'])) && (isset($_GET['id']))) {
-                            addComment($_POST['comment'], $_GET['id']);
+                            addComment(htmlspecialchars($_POST['comment']), htmlspecialchars($_GET['id']));
                         } else {
                             throw new Exception('Erreur : tous les champs ne sont pas remplis !');  
                         }
@@ -111,7 +111,7 @@
                 else if ($_GET['action'] == 'signaled') {
                     if (isset($_SESSION['id'])) {
                         if ((($_GET['id-com']) >= 1) && (isset($_GET['id'])) && (($_GET['id']) >= 1)) {
-                            signaled($_GET['id-com'], $_GET['id']);
+                            signaled(htmlspecialchars($_GET['id-com']), htmlspecialchars($_GET['id']));
                         } else {
                             throw new Exception('Erreur : Désolé, une erreur s\'est produite.');           
                         }

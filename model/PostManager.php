@@ -53,5 +53,4 @@ class PostManager extends Manager {
 
 		return $delete;
 	}
-
 }
