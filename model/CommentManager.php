@@ -2,7 +2,7 @@
 namespace VeyratAntoine\MyBlog\Model;
 
 class CommentManager extends Manager {
-    // RECUPERER LA LISTE DES COMMENTAIRES LIES AU POST
+    // Liste des commentaires
 	public function getComments($postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('
@@ -17,7 +17,7 @@ class CommentManager extends Manager {
         return $req;
 	}
 
-    // OBTENIR LA LISTES DES COMMENTAIRES SIGNALES
+    // Liste des commentaires signalés
     public function getSignaledComments() {
         $bdd = $this->dbConnect();
         $req = $bdd->query('
@@ -30,7 +30,7 @@ class CommentManager extends Manager {
         return $req;
     }
 
-    // AJOUTER UN COMMENTAIRE
+    // Ajout d'un commentaire
     public function pushComment($comment, $id) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('INSERT INTO comments (text, id_member, id_post) VALUES (:comment, :idm, :idp)');
@@ -43,7 +43,7 @@ class CommentManager extends Manager {
         return $req;
 	}
 
-        // SUPPRIMER UN COMMENTAIRE
+        // Suppression d'un commentaire
     public function deleteComment($id) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
@@ -52,7 +52,7 @@ class CommentManager extends Manager {
         return $req;
     }
 
-        // RESET UN COMMENTAIRE
+        // Reset d'un commentaire
     public function resetComment($id) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('UPDATE comments SET signaled= :signal WHERE id= :id');
@@ -64,7 +64,7 @@ class CommentManager extends Manager {
         return $req;
     }
 
-    // EFFECTUER UN SIGNALEMENT
+    // Effectuer un signalement de commentaire
 	public function signaledComment($idComment, $idPost) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('
@@ -76,5 +76,4 @@ class CommentManager extends Manager {
 		
         return $req;
 	}
-
 }

@@ -2,7 +2,7 @@
 namespace VeyratAntoine\MyBlog\Model;
 
 class PostManager extends Manager {
-	// RECUPERER LA LISTE DES POSTS
+	// Liste des posts
     public function getPosts() {
 		$bdd = $this->dbConnect();
 		$req = $bdd->query('SELECT * FROM post');
@@ -10,7 +10,7 @@ class PostManager extends Manager {
 		return $req;
 	}
 
-	// RECUPERER UN POST
+	// Selection d'un post
 	public function getPost($postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('SELECT * FROM post WHERE id = ?');
@@ -20,7 +20,7 @@ class PostManager extends Manager {
         return $post;
 	}
 
-	// AJOUTER UN POST
+	// Ajout d'un post
 	public function pushPost($title, $text) {
 		$bdd = $this->dbConnect();
 		$req_insert_post= $bdd->prepare('INSERT INTO post(title, text) VALUES (:title, :text)');
@@ -32,7 +32,7 @@ class PostManager extends Manager {
 		return $req_insert_post;
 	}
 
-	// MODIFIER UN POST
+	// Edit d'un post
 	public function editPost($title, $text, $id) {
 		$bdd = $this->dbConnect();
 		$req_edit_post= $bdd->prepare('UPDATE post SET title= :title, text= :postText WHERE id= :idPost');
@@ -45,7 +45,7 @@ class PostManager extends Manager {
 		return $req_edit_post;
 	}
 
-	// SUPPRIMER UN POST
+	// Suppression d'un post
 	public function deletePost($id) {
 		$bdd = $this->dbConnect();
 		$delete = $bdd->prepare('DELETE FROM post WHERE id = ?');
