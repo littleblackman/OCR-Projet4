@@ -1,10 +1,11 @@
 <?php ob_start(); ?>
 <section id="presentation-content" class="row justify-content-md-center">
     <div class="presentation">
-        <img src="public/img/avatar.jpg" alt="Jean-Forteroche" width="150px" class="img-biographie">
+        <img src="public/img/avatar.jpg" alt="Jean-Forteroche" class="img-biographie">
         <div class="biographie">
             <h3>Biographie</h3>
-            <p>"Auxerunt haec vulgi sordidioris audaciam, quod cum ingravesceret penuria commeatuum, famis et furoris inpulsu Eubuli cuiusdam inter suos clari domum ambitiosam ignibus subditis inflammavit rectoremque ut sibi iudicio imperiali addictum calcibus incessens et pugnis conculcans seminecem laniatu miserando discerpsit. post cuius lacrimosum interitum in unius exitio quisque imaginem periculi sui considerans documento recenti similia formidabat."</p>
+            <p>"L'écriture représente une superbe passion sans frais à mes yeux, de ce fait, je vous partage avec joie quelques lignes de mon aventure frigorifiée, à l'autre bout du monde: en Alaska ! 
+            Vous découvrirez au travers des chapitres une chronologie envoutante, et je suis certain de vous partager quelques frissons. J'espère de tout coeur que ces chapitres vous transporteront et vous emmèneront là où s'est déroulé le meilleur jour de ma vie. Je serais honoré de recevoir vos critiques positives et/ou négatives. Bonne lecture !"</p>
             <p>Jean Forteroche</p>
         </div>
         </div>

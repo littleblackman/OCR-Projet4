@@ -38,22 +38,48 @@
 	// CONNEXION
 	function loginVerify($name, $pass) {
 		$session = new \VeyratAntoine\MyBlog\Model\Session();
-		$session->login($name, $pass);
-		if ($session === false) {
+		$result = $session->login($name, $pass);
+		if ($result === false) {
 	    	throw new Exception('Erreur SQL: Impossible d\'accéder à vos données !');
 	    } else {
-			header('Location: index.php');
+		    $rId = $result['id'];
+		    $rName = $result['name'];
+		    $rPass = $result['password'];
+		    $rStatus = $result['moderator'];
+		    // Comparaison du mot de passe
+			$isPasswordCorrect = password_verify($pass, $rPass);
+			// Vérification du name
+			if ($name != $rName) {
+				throw new \Exception('Erreur : Identifiant non reconnu !');
+			// Vérification du password
+			} else {
+				if ($isPasswordCorrect) {
+					session_start();
+					$_SESSION['id'] = $rId;
+					$_SESSION['name'] = $rName;
+					$_SESSION['status'] = $rStatus;
+					header('Location: index.php');
+				}else {
+					throw new \Exception('Erreur : Mot de passe erroné !');
+				}
+			}
 		}
 	}
+
 
 	// INSCRIPTION
 	function subscribeVerify($name, $pass) {
 		$session = new \VeyratAntoine\MyBlog\Model\Session();
-		$session->subscribe($name, $pass);
-		if ($session === false) {
-	    	throw new Exception('Erreur SQL: Impossible d\'enregistrer vos données !');
-	    } else {
-			header('Location: index.php');
+		$result = $session->subscribe($name, $pass);
+		if ($result != 0) {
+			throw new \Exception('Erreur : Cet identifiant est déjà pris, veuillez en choisir un nouveau !');
+		} else {
+			$insert = $session->subscribeInsert($name, $pass);
+			if ($insert === false) {
+				throw new Exception('Erreur SQL: Impossible d\'enregistrer vos données !');
+			} else {
+				header('Location: index.php');
+			}
 		}
 	}
 

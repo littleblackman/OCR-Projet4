@@ -1,6 +1,6 @@
 <header class="row vertical-align">
 	<div class="title col-lg-8">
-		<h1>Billet simple pour l'Alaska</h1>
+		<h1><a href="index.php" style="text-decoration:none; color:white;">Billet simple pour l'Alaska</a></h1>
 	</div>
 	<div class="menu col-lg-4">
 		<?php 

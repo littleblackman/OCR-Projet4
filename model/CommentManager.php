@@ -11,6 +11,7 @@ class CommentManager extends Manager {
         	INNER JOIN members m
         	ON c.id_member = m.id
         	WHERE id_post = ? AND signaled = 0
+            ORDER BY c.id ASC
         ');
         $req->execute(array($postId));
 
