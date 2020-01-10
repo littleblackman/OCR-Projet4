@@ -22,12 +22,9 @@
 	        	$member = $comment['name_com'];
 	        	echo 
 	        		'<div class="comment"><h6>' . $member . '</h6>
-	        		<p>' . $text . '</p>';
-	        	if (isset($_SESSION['id'])) {
-	        		echo '<a href="index.php?action=signaled&id-com=' . $comment['id_com'] . '&id=' . $id_post . '" style="text-decoration:none">Signaler</a></div>';
-	        	} else { 
-	        		echo '</div>';
-	        	}
+	        		<p>' . $text . '</p>
+	        		<a href="index.php?action=signaled&id-com=' . $comment['id_com'] . '&id=' . $id_post . '" style="text-decoration:none">Signaler</a></div>'
+	        	;
 	       	}
 	    ?>
 	</div>

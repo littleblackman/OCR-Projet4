@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <section id="presentation-content" class="row justify-content-md-center">
     <div class="presentation">
-        <img src="public/img/avatar.jpg" alt="Jean-Forteroche" class="img-biographie">
+        <img src="public/img/avatar.jpg" alt="Jean-Forteroche" width="150px" class="img-biographie">
         <div class="biographie">
             <h3>Biographie</h3>
             <p>"L'écriture représente une superbe passion sans frais à mes yeux, de ce fait, je vous partage avec joie quelques lignes de mon aventure frigorifiée, à l'autre bout du monde: en Alaska ! 
